@@ -1,0 +1,552 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+* {
+    -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+}
+
+body {
+    -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+    -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+   /* background-color:#E4E4E4;
+    background-image:linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    background-image:-webkit-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    background-image:-ms-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    background-image:-webkit-gradient(
+        linear,
+        left top,
+        left bottom,
+        color-stop(0, #A7A7A7),
+        color-stop(0.51, #E4E4E4)
+    );
+    background-attachment:fixed; */
+    font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+    font-size:12px;
+    height:100%;
+    margin:0px;
+    padding:0px;
+    width:100%;
+	text-shadow:none;
+}
+.ui-header, .ui-footer .ui-bar-inherit, #footer{ background-color: #0063E5; color:#fff; border-width:0 0; border-style:none; }
+/* .ui-header .ui-bar-inherit{ background-color: #0063E5;} */
+#footer{position:fixed; bottom: 0px; width:100%; font-weight:100; z-index:5000; text-align:right; line-height:20px; font-size:0.8em; }
+#footer a{ color:#fff; }
+#footer h4{font-weight:100; font-size:10px;}
+#footer #logOut{ line-height:30px; display:inline-block; background-color:#cc0000;}
+#footer button#logOut-btn{ background-color:#0063E5; color:#fff; line-height:20px; border:0; box-shadow:none; font-size:1em; font-weight: lighter;}
+/* Portrait layout (default) */
+.app {
+    background:url(http://imajineweb.com/temple/img/logo.png) no-repeat center top; /* 170px x 200px */
+    position:absolute;             /* position in the center of the screen */
+    left:50%;
+    top:50%;
+    height:50px;                   /* text area height */
+    width:225px;                   /* text area width */
+    text-align:center;
+    padding:180px 0px 0px 0px;     /* image height is 200px (bottom 20px are overlapped with text) */
+    margin:-115px 0px 0px -112px;  /* offset vertical: half of image height and text area height */
+                                   /* offset horizontal: half of text area width */
+}
+/* LOGIN PAGE STYLES */
+.html-mobile-background {
+    position: fixed;
+     z-index: -1; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 125%; /* To compensate for mobile browser address bar space */
+    background: url(../img/login-bg.png) no-repeat; 
+    background-size: 100% 100%;
+}
+
+
+/* LOGIN FORM STYLES */
+
+.wrap {
+	width:250px;
+	height: auto;
+	margin: auto;
+	margin-top: 10%;
+	font-family:Open Sans;
+}
+.wrap input {
+	border: none;
+	background: #f2f1f8;
+	font-family:Open Sans;
+	font-weight:300 ;
+	font-size:10px;
+	display: block;
+	height: 40px;
+	outline: none;
+	width: calc(100% - 24px) ;
+	margin: auto;
+	padding: 6px 12px 6px 12px;
+}
+.bar {
+	width: 100%;
+	height: 1px;
+	background: #fff ;
+}
+.bar i {
+	width: 100%;
+	margin: auto;
+	height: 1px ;
+	display: block;
+	background: #d1d1d1;
+}
+.wrap input[type="text"] {
+	border-radius: 7px 7px 0px 0px;
+	background:#f2f1f8;
+	color:#666;
+	font-size:1em;
+}
+
+.wrap input[type="email"]{ margin-bottom:0; border-radius: 7px 7px 0px 0px;}
+
+.wrap input[type="password"] {
+	border-radius: 0px 0px 7px 7px ;
+	background:#f2f1f8;
+	color:#666;
+	font-size:1em;
+}
+#div-register-form{width:95%; margin:0 auto 30px auto; height:500px;}
+#div-register-form #sendingMessage h2{ font-size:1em; font-weight:normal; color:#000;}
+form#register{ font-size:1em;}
+#login-btn, #register-btn, #offering-btn, #addNewMember-form #addNewMember-btn, #addNewMember-form #cancel, #updateMember-form #updateMember-btn, #updateMember-form #cancelUpdate-btn, /* #searchOffering-form #cancelSearch-btn,*/ #updateCredit-btn, #admin-searchOffering-btn, #admin-searchOffering-form #cancel, ul#profile-details li button, .update-btn, .cancel-btn{ width: 100%;  text-decoration: center; margin:1.5em 0; outline: none; font-size: 1em; cursor: pointer; text-shadow:none; font-weight:100; background: #619AFF;
+  background-image: -webkit-linear-gradient(top, #619AFF, #005CF3);
+  background-image: -moz-linear-gradient(top, #619AFF, #005CF3);
+  background-image: -ms-linear-gradient(top, #619AFF, #005CF3);
+  background-image: -o-linear-gradient(top, #619AFF, #005CF3);
+  background-image: linear-gradient(to bottom, #619AFF, #005CF3);
+  -webkit-border-radius: 5;
+  -moz-border-radius: 5;
+  border-radius: 5px;
+  color: #ffffff;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+  border:1px solid #005CF3;
+}
+#addNewMember-form #addNewMember-btn, #addNewMember-form #cancel, #updateMember-form #updateMember-btn, #updateMember-form #cancelUpdate-btn, #admin-searchOffering-btn, #admin-searchOffering-form #cancel, .update-btn, .cancel-btn{width:40%; display:inline;}
+
+#admin-searchOffering-btn, #admin-searchOffering-form #cancel{ margin:0;}
+#admin-searchOffering-btn{margin-right:5%; }
+.select1{background-color: #edecec; border-color: #edecec; color: #666; /* text-shadow: 0 1px 0 #f3f3f3; border-color: #ee6930; */}
+a.white-link{ color:#fff; text-decoration:none;}
+a.white-link-underline{ color:#fff;}
+
+ul.offering-list{ list-style:none; margin:0; padding:0; width:80%; }
+ul.offering-list li{ padding-bottom: 5px; border-bottom:1px solid #CCC; margin-bottom:5px; font-weight:100;}
+ul.offering-list li a {color:#333; text-decoration:none;}
+ul.offering-list li a:hover{text-decoration:underline;}
+
+/* REGISTRATION FORM STYLES */
+form#registration input[type="text"] { font-size:10px;}  
+
+#page-title{position:relative; display:block; float:left; width:100%; background-color:#E8A800; color:#222; text-shadow:none; padding:5px 0; font-weight:100; height:25px; font-size:1.2em; }
+#page-title .back-to-dashboard{position:relative; display:inline; float:left; padding:0 3px; margin-left:5px;}
+#page-title #credit{position:relative; display:inline; float:left; width:40%; line-height:25px; padding-left:1%; font-size: 0.8em;}
+#page-title #profile-name{position:relative; display:inline; float:left; width:48%; line-height:25px; text-align:right; font-size: 0.8em;}
+#dashboard div.ui-content{padding:0; width:100%; height:auto;}
+#dashboard div.ui-content a{ line-height:2.5em; color:#000; font-size:1.3em;}
+
+#div-10per{ position:relative; display:inline; float:left; width:10%;}
+#div-10per img{margin-left:5px;}
+#div-20per{ position:relative; display:inline; float:left; width:20%; height: auto;}
+#div-80per{ position:relative; display:inline; float:left; width:80%; height: auto;}
+#div-90per{ position:relative; display:inline; float:left; width:90%;}
+#div-100per{ position:relative; display:block; float:left; width:100%;}
+
+
+.padding-top-btm-20{ padding:20px 0;}
+.left-position-3pix{ left:3px;}
+
+.font-white{ color:#fff;}
+.profile-left-link{ display:block; padding-left:3px; text-decoration:none; color:#fff;}
+/************************ ADD NEW DOCUMENT FORM STYLES **************************/
+#top-sidebar-btns{ float:left; position:relative; display:inline; width:55px; height:80px; margin-left:5px; margin-top:3px; }
+#member-btns{ float:left; position:relative; display:block; width:100%; height:30px; margin-bottom:10px; }
+#member-btns a.img{border:0;}
+#member-list-block{ position:relative; display:block; float:left; border-top:1px solid #CCC; margin-top:5px; padding-top:5px; width:100%; margin-bottom:50px;}
+#member_list{position:relative; display:block; float:left; font-size:13px;}
+#member-list-block h2{ font-size:15px; color:#ed6830; }
+#member_list li{ list-style:none; border-bottom:1px solid #e8e8e8; padding-bottom:4px; margin-bottom:4px;}
+#member_list li a{ color:#666;}
+#member_list li member{position:relative; display:inline-block; width:150px; text-transform:capitalize;}
+#member_list li a#member-edit{ position:relative; display:inline-block; width:26px; height:17px; cursor:pointer; background:url(http://imajineweb.com/temple/img/edit_ic.png) no-repeat;}
+#member_list li a#member-edit:hover{ background:url(http://imajineweb.com/temple/img/edit_ic_hover.png) no-repeat;}
+#member_list li a#member-delete{ position:relative; display:inline-block; width:26px; height:17px; cursor:pointer; background:url(http://imajineweb.com/temple/img/delete_ic.png) no-repeat;}
+#member_list li a#member-delete:hover{background:url(http://imajineweb.com/temple/img/delete_ic_hover.png) no-repeat;}
+
+#delete-btns{position:relative; float:right; clear:right; width:24px; height:30px; display:table-column; padding-left:0; text-align:right; }
+#delete-btns a.img{ border:0; }
+#delete-btns #minus{ width:25px;  height:25px; border:0;}
+#delete-btns #done{
+	width:45px; 
+	height:25px; 
+	border:0; 
+	visibility:collapse;
+	}
+#addNewMember-form, #updateMember-form /* #searchOffering-form */{
+visibility:hidden;
+}
+
+/* ****************** OFFERING HISTORY LISTING ****************** */
+#offering-history{position:relative; display:block; float:left; font-size:0.7em; height:170px; width: 90%;}
+#offering-history li{ list-style:none; border-bottom:1px solid #e8e8e8; padding-bottom:4px; margin-bottom:4px;}
+#offering-history li member{position:relative; display:inline-block; width:30%; overflow:hidden; height:15px; text-transform:capitalize;}
+#offering-history li offering{position:relative; display:inline-block; width:30%;}
+#offering-history li date-offering{position:relative; display:inline-block; width:25%;}
+#offering-history li status{position:relative; display:inline-block; width:15%;}
+
+/* OFFERING HISTORY PAGINATION STYLES */
+#page_navigation{ position:relative; display:block; float:left; width:100%; margin-bottom:40px;}
+.previous_link, .page_link, .next_link{ display:inline-block; border:1px solid #ccc; padding:3px; margin:3px; font-size:0.8em; color:#000; text-decoration:none;}
+
+
+
+/************************** New doc already exists div style ********************************/
+.new-doc-status { margin-left:15px; -webkit-animation: seconds 1.0s forwards; -webkit-animation-iteration-count: 1;  -webkit-animation-delay: 5s;  animation: seconds 1.0s forwards; animation-iteration-count: 1; animation-delay: 5s; position: relative; background: red; }
+
+@-webkit-keyframes seconds {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    left: -9999px;
+	height:0; 
+  }
+}
+@keyframes seconds {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    left: -9999px;
+	height:0; 
+  }
+}
+/*************** End of new doc already exists style **********************/
+
+.delete-post{ 
+background:url(http://imajineweb.com/temple/img/delete2-red-btn.png) no-repeat;
+ width:14px;
+ height:14px; 
+ margin-top:3px;
+ display:table-cell;
+ visibility:hidden;
+}
+
+/*************** Style for the add new document form and status messages ************/
+#addNewMember-form, #updateMember-form, /*#searchOffering-form,*/  .statusMessage { color: #666; opacity: 1; font-family: Arial, Helvetica, sans-serif; font-size: 12px;
+}
+
+/***************************** The form dimensions ************************/
+ #addNewMember-form, #updateMember-form /*#searchOffering-form*/ {
+width: 80%; 
+ height: auto;
+ padding:10px;
+ margin:5px;
+ border:3px solid #FFEEE3;
+ background:#FFF;
+ position:absolute;
+}
+ #addNewMember-form ul, #updateMember-form ul /* #searchOffering-form ul*/ {
+	 margin:0;
+	 padding:0; 
+	 list-style:0;
+}
+ #addNewMember-form ul li, #updateMember-form ul li /* #searchOffering-form ul li */{
+	 float:left;
+	 border:0;
+	 padding:0;
+	 display:block;
+	 width: 100%;
+}
+#addNewMember-form #addNewMember-btn, #updateMember-form #updateMember-btn, #searchOffering-form #search-offerer-btn{ margin-right:5px;}
+#addNewMember-form #cancel, #updateMember-form #cancelUpdate-btn, #searchOffering-form #cancelSearch-btn{margin-left:5px; }
+/* #addNewMember-form #addNewMember-btn, #addNewMember-form #cancel, #updateMember-form #updateMember-btn, #updateMember-form #cancelUpdate-btn, #searchOffering-form #cancelSearch-btn{width:40%;  border-radius: 2px; display:inline;  background-color: #0063E5;background-image:none; text-decoration: center; border: none; color: #ffffff; margin-top:7px; outline: none; font-size: 1em; border-bottom: 3px solid #c64b20; cursor: pointer; text-shadow:none; font-weight:100; } */
+
+/* Position the form in the middle of the window (if JavaScript is enabled) */
+ #addNewMember-form.positioned, #updateMember-form.positioned, #searchOffering-form.positioned {  position: absolute; margin: 0 auto; }
+
+/* Dimensions and position of the status messages */
+.statusMessage { display: none; margin: auto;  width: 25em; height: 2em; 
+padding: 1.5em; 
+position: fixed; 
+top: 0; 
+bottom: 0; 
+left: 0; 
+right: 0;
+}
+
+#sendingMessage, #successMessage, #failureMessage, #incompleteMessage { display: none; margin: auto; width: 80%; height: 70px; padding: 5%; position: fixed; top: 40px; background:#fff; border:3px solid #bbb; text-align: center; /*visibility:hidden; z-index:-20; */} 
+
+.statusMessage p { text-align: center; margin: 0; padding: 0;}
+
+/* The header at the top of the form */
+ #addNewMember-form h2, #updateMember-form h2, #searchOffering-form h2 {
+  font-size: 2em;
+  font-style: italic;
+  letter-spacing: .05em;
+  margin: 0 0 1em -.75em;
+  padding: 1em;
+  width: 19.5em;  
+  color: #aeb6aa;
+  border-bottom: 1px solid #aaa;
+  -moz-border-radius: 10px 10px 0 0;
+  -webkit-border-radius: 10px 10px 0 0;  
+  border-radius: 10px 10px 0 0;
+}
+
+/* Give form elements consistent margin, padding and line height */
+#addNewMember-form input, #updateMember-form input, #searchOffering-form input, #contactForm label {
+ font: 400 13px/10px "Open Sans",sans-serif;
+}
+/* Place a border around focused fields, and hide the inner shadow */
+#addNewMember-form *:focus {
+  border: 1px solid #66f;
+  outline: none;
+  box-shadow: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+} 
+
+
+/************************** Styles for add new document and delete document - + and - icons ********************************/
+ #addNewMember-form input[type="submit"] { 
+ 	float: right; 
+	background:#fff url(http://imajineweb.com/temple/img/save-new-doc-btn.png) no-repeat; 
+	width:15px; 
+	height:11px; 
+	border:0; 
+	padding:5px 0; 
+	color:#fff; 
+	line-height: 2em;  
+	}
+
+ #addNewMember-form input[type="button"], #updateMember-form input[type="button"], #searchOffering-form input[type="button"] 
+ { 
+ 	float: right; 
+	background:url(http://imajineweb.com/temple/imgs/cancel-new-doc-btn.png) no-repeat; 
+	width:12px; 
+	height:11px; 
+	border:0; 
+	padding:5px 0; 
+}
+#addNewMember-form input[type="text"], #updateMember-form input[type="text"], #searchOffering-form input[type="text"],  #userNameUpdate-txt  input[type="text"]{ color: #000; font-family: Arial, Helvetica, sans-serif; font-size: 12px; font-style: normal; font-weight: normal; line-height:100%; margin: 10px 0px; display: inline; float: left; height: 30px; width:90%; -moz-border-radius: 5px;  -webkit-border-radius: 5px; border-radius: 5px; background: #fff; border: 1px solid #C3C3C3; padding-left:3px;
+	 } 
+#addNewMember-form input[type="text"], #updateMember-form input[type="text"] {margin: 5px 0px;}
+textarea#address, textarea#address-edit{background:#fff; color: #000; font-family: Arial, Helvetica, sans-serif; font-size: 12px; font-style: normal; font-weight: normal;width:90%; -moz-border-radius: 5px;  -webkit-border-radius: 5px; border-radius: 5px; background: #fff; border: 1px solid #C3C3C3; padding-left:3px;}
+form#register textarea#address{width:100%; font-size:0.9em;}
+form#register #starsign_list-register{margin:10px 0; font-size: 1em; font-weight: lighter;}
+/* .ui-page-theme-b .ui-btn{ background-color: #fff; border-color: #aaa; color: #aaa; text-shadow:none;} */
+#addNewMember-form select, #starsign_list-button, #updateMember-form select, #updateMember-form #starsign_list-edit-button, #updateMember-form select#starsign_list-edit, #register select, #offering-form select, #admin-searchOffering-form select, #starsignupdate_list, #userDayUpdate, #userMonthUpdate, #userYearUpdate{background-color: #fff; border-color: #aaa; color: #333; text-shadow:none; font-size:12px; padding:7px 30px 7px 3px; line-height:100%; background: url('http://imajineweb.com/temple/img/down-arrow.png') no-repeat 100% 4px #fff; 
+background: url('http://imajineweb.com/temple/img/down-arrow.png') no-repeat 100% 0px, #fff /*-webkit-linear-gradient(top, #fff, #9c9c9c)*/;
+    background: url('http://imajineweb.com/temple/img/down-arrow.png') no-repeat 100% 0px, #fff /*-moz-linear-gradient(top, #fff, #9c9c9c)*/;
+    background: url('http://imajineweb.com/temple/img/down-arrow.png') no-repeat 100% 0px, #fff /*-ms-linear-gradient(top, #fff, #9c9c9c)*/;
+    background: url('http://imajineweb.com/temple/img/down-arrow.png') no-repeat 100% 0px, #fff /*-o-linear-gradient(top, #fff, #9c9c9c)*/;
+    background: url('http://imajineweb.com/temple/img/down-arrow.png') no-repeat 100% 0px, #fff /*linear-gradient(top, #fff, #9c9c9c)*/;
+    -webkit-appearance: none; /* gets rid of default appearance in Webkit browsers*/
+    -moz-appearance: none; /* Get rid of default appearance for older Firefox browsers */
+    -ms-appearance: none; /* get rid of default appearance for IE8, 9 and 10*/
+    appearance: none;}
+#addNewMember-form select#starsign_list, /* #addNewMember-form select#starsign_list-edit, */ #updateMember-form select#starsign_list-edit{width:90%; }
+
+#searchOffering-form select#day, #searchOffering-form select#month, #register select#day, #register select#month{ margin-right:17px;}
+
+#addNewMember-form select#day, #addNewMember-form select#month, #updateMember-form select#day, #updateMember-form select#month{ margin-right:5px;} 
+
+#offering-form select#day, #offering-form select#month, #admin-searchOffering-form select#day, #admin-searchOffering-form select#month,{ margin-right:10px;}
+
+.ui-page-theme-b .ui-body-inherit{background-color: #fff; border-color: #aaa; color: #aaa; font-size:12px; margin:10px 0;}
+
+#addNewMember-form select, #updateMember-form select, #searchOffering-form select, #offering-form select, #admin-searchOffering-form select{ margin:5px auto; }
+
+#addNewMember-form input[type="button"], #updateMember-form input[type="button"], #searchOffering-form input[type="button"]{width:40%;}
+
+input[type="submit"]:hover, input[type="submit"]:active, input[type="button"]:hover, input[type="button"]:active { cursor: pointer; opacity: 1;}
+
+input[type="submit"]:active, input[type="button"]:active {
+  color: #333;
+  background: #eee;
+  -moz-box-shadow: 0 0 .5em rgba(0, 0, 0, .8) inset;
+  -webkit-box-shadow: 0 0 .5em rgba(0, 0, 0, .8) inset;
+  box-shadow: 0 0 .5em rgba(0, 0, 0, .8) inset;
+}
+
+
+
+
+/*
+a.forgot_link {
+	color: #83afdf;
+	text-decoration: none;
+	position: relative;
+	left: 180px;
+	top: -36px;
+	text-shadow:none;
+	text-transform:lowercase;
+	font-weight:50;
+	font-family:Open Sans;
+}
+.wrap button {
+	width: 100%;
+	border-radius: 7px;
+	background: #b6ee65;
+	text-decoration: center;
+	border: none;
+	color: #51771a;
+  margin-top:-5px;
+	padding-top: 14px;
+	padding-bottom: 14px;
+	outline: none;
+	font-size: 13px;	
+	border-bottom: 3px solid #307d63;
+	cursor: pointer;
+} */
+
+/* Landscape layout (with min-width) */
+@media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
+    .app {
+        background-position:left center;
+        padding:75px 0px 75px 170px;  /* padding-top + padding-bottom + text area = image height */
+        margin:-90px 0px 0px -198px;  /* offset vertical: half of image height */
+                                      /* offset horizontal: half of image width and text area width */
+    }
+}
+
+h1 {
+    font-size:24px;
+    font-weight:normal;
+    margin:0px;
+    overflow:visible;
+    padding:0px;
+    text-align:center;
+	text-shadow:none;
+}
+
+.event {
+    border-radius:4px;
+    -webkit-border-radius:4px;
+    color:#FFFFFF;
+    font-size:12px;
+    margin:0px 30px;
+    padding:2px 0px;
+}
+
+.event.listening {
+    background-color:#333333;
+    display:block;
+}
+
+.event.received {
+    background-color:#4B946A;
+    display:none;
+}
+
+input[type="text"] {
+	border:1px solid #666; font-size: 10px; 
+	
+}
+
+/************************* PROFILE PAGE STYLES ***************************/
+ul#profile-details{ padding:0; margin:0; list-style:none;}
+ul#profile-details li{ padding:3px 0; font-size:1em; line-height:20px; color:#000;}
+/*
+ul#profile-details li#user userNameUpdate, ul#profile-details li#userEmail userEmailUpdate{ position:relative; display:inline-block; float:left; visibility:hidden; border-bottom:1px solid #CCC; width:0; overflow:hidden; height:0;} */
+
+userNameUpdate, userEmailUpdate, userPhoneUpdate, passwordupdate, passwordUpdate, userDOBUpdate, StarSignUpdate{ position:relative; display:inline-block; float:left; visibility:hidden; border-bottom:1px solid #CCC; width:0; overflow:hidden; height:0;}
+userName, userEmailEdit, passwordEdit, li#userEmail, li#userpassword, li#userPhone, li#userDOB, li#userStarSign{position:relative; display:inline-block; float:left; visibility:visible; width:100%; border-bottom:1px solid #CCC; margin-bottom: 7px;}
+
+/* ul#profile-details li#user userName, ul#profile-details li#userEmail userEmailEdit, passwordEdit{position:relative; display:inline-block; float:left; visibility:visible; width:100%; border-bottom:1px solid #CCC; margin-bottom: 7px;}
+*/
+ul#profile-details li#user userName button, ul#profile-details li#user userNameUpdate button#updateUserName-btn, ul#profile-details li#user userNameUpdate button#userNameUpdateCancel-btn, ul#profile-details li#user userEmailUpdate button#updateEmail-btn, ul#profile-details li#user userEmailUpdate button#userEmailUpdateCancel-btn, ul#profile-details li button, button#updatePhone-btn, button#starUpdateCancel-btn, button#updateStar-btn{ width:20%; margin:0 0 7px 7px; padding:3px; font-size:0.9em; display:inline; float:right;}
+
+/******SELECT ELEMENT WIDTH **********/
+#userDayUpdate-button, #userMonthUpdate-button, #userYearUpdate-button{width:7%; margin:0 7px 7px 0; display:inline-block; float:left;}
+#userYearUpdate-button{width:20%; margin-right:0;}
+#starsignupdate_list{width:90%; margin-bottom:10px;}
+
+ul#profile-details li#user userNameUpdate button#updateUserName-btn, ul#profile-details li#user userEmailUpdate button#updateEmail-btn, .update-btn, ul#profile-details li#userEmail userEmailUpdate button#updateEmail-btn, ul#profile-details li#userEmail userEmailUpdate button#userEmailUpdateCancel-btn, .update-btn, button#updatePhone-btn, button#updateStar-btn{width:40%; margin-right:15px;}
+
+/**************** MOST OF THE SECOND BUTTO STYLES COME HERE, SAY LIKE CANCEL BUTTON ****************/
+ul#profile-details li#user userNameUpdate button#userNameUpdateCancel-btn, .update-cancel-btn, ul#profile-details li#user userEmailUpdate button#userEmailUpdateCancel-btn, .cancel-btn, button#userPhoneUpdateCancel-btn, button#starUpdateCancel-btn{width:40%;}
+button#changepassword-btn{width:80%;}
+/************************* END OF PROFILE PAGE STYLES ***************************/
+
+@keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+ 
+@-webkit-keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+ 
+.blink {
+    animation:fade 3000ms infinite;
+    -webkit-animation:fade 3000ms infinite;
+}
+.ui-input-text, .ui-input-search {  border-width: 0;} 
+/*
+.login-page
+{ background:url(../img/login-bg.png) no-repeat 0 0; background-size: cover;}
+.ui-header{background-color:#ee6930; }
+h1.ui-title{color:#ffffff;}
+*/
+#pic{position:relative; display:block; width:100px; height:100px; margin:0 auto;}
+#title{position:relative; display:inline; float:left; width:50%; margin:0 auto; height:50px;}
+
+@media (min-width: 600px) {
+    html {
+       /* background: url(../imgs/bg.jpg) no-repeat center center fixed; */
+        background-size: cover;
+    }
+	
+    .html-mobile-background {
+       /* display: none; */
+    }
+}
+
+
+
+/* ******************************* STYLESHEET FOR ADMIN REGION ******************** */
+form#updateCredit-form input[type="text"]{color: #000; font-family: Arial, Helvetica, sans-serif; font-size: 12px; font-style: normal; font-weight: normal; line-height:100%; margin: 10px 0px; display: inline; float: left; height: 30px; width:90%; -moz-border-radius: 5px;  -webkit-border-radius: 5px; border-radius: 5px; background: #fff; border: 1px solid #C3C3C3; padding-left:3px;}
+form#updateCredit-form #updateCredit-btn{width:90%;}
+#header a{border:0; -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0); box-shadow: 0 1px 1px rgba(0, 0, 0, 0); padding:5px;}
+
+
+
+form#offering-form{font-size:1em; margin-bottom: 40px;}
+#offering_status_message #sendingMessage h2{font-size:1em; font-weight:normal; color:#000;}
+form#offering-form select#offerers_list, form#offering-form select#offering_list, form#admin-searchOffering-form select#offering_list2{ margin: 10px 0; font-size: 1em; font-weight: lighter; width:100%;}
+form#admin-searchOffering-form select#day, form#admin-searchOffering-form select#month, form#admin-searchOffering-form select#year, form#admin-searchOffering-form select#offering_list2{margin:3px 0; font-size:0.7em;}
+form#admin-searchOffering-form select#offering_list2{width:80%;}
+form#admin-searchOffering-form #admin-searchOffering-btn{padding:5px; font-size:0.7em;}
+form#admin-searchOffering-form #cancel{padding:5px; font-size:0.7em;}
+form#admin-searchOffering-form input[type="text"]{color: #000; font-family: Arial, Helvetica, sans-serif; font-size:0.7em; font-style: normal; font-weight: normal; line-height:100%; margin: 3px 0px; display:inline-block; height: 20px; width:60%; -moz-border-radius: 5px;  -webkit-border-radius: 5px; border-radius: 5px; background: #fff; border: 1px solid #aaa; padding-left:3px;}
+form#admin-searchOffering-form{ margin-bottom:15px;}
+
+

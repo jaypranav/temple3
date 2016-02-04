@@ -1,0 +1,150 @@
+<!DOCTYPE html> 
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Temple Mobile Web App</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="css/index.css">
+<!--<link rel="stylesheet" href="http://cdn.rawgit.com/arschmitz/jquery-mobile-datepicker-wrapper/v0.1.1/jquery.mobile.datepicker.css"> -->
+
+
+<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+<script src="js/jquery.js"></script>
+<script src="js/index.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="http://imajineweb.com/temple/jquery.mobile-1.4.5/demos/css/themes/default/jquery.mobile-1.4.5.min.css">
+<link rel="stylesheet" href="http://imajineweb.com/temple/jquery.mobile-1.4.5/demos/_assets/css/jqm-demos.css">
+<link rel="shortcut icon" href="favicon.ico">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+    
+</head> 
+<body> 
+
+
+<div data-role="page" id="dashboard" data-theme="none">
+	<div data-role="header" id="header"><h1>Durga temple</h1></div>
+    <div data-role="content" style="text-align:center;">
+        <a href="#search-page" >Search</a><br/>
+        <a href="#Offering-list">Offering list</a><br/>
+        <a href="#">Add credit</a><br/>
+        <a href="#recharge-credit">Credits</a>
+        </div>
+        </div>
+    <div data-role="footer" id="footer"><h4><a href="#" id="logOut">Log-out</a></h4></div>
+</div>
+
+<div data-role="page" id="search-page" data-theme="none">
+	<div data-role="header" id="header"><h1>Durga temple</h1></div>
+    <div data-role="content">
+      <form action="" id="admin-searchOffering-form" method="post" >
+        <strong>Search</strong>
+        <div style="margin:5px 0;">
+        Date:  <select name="day" id="day" data-role="none">
+        <option>Day</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+        <option value="13">13</option>
+        <option value="14">14</option>
+        <option value="15">15</option>
+        <option value="16">16</option>
+        <option value="17">17</option>
+        <option value="16">16</option>
+        <option value="17">17</option>
+        <option value="18">18</option>
+        <option value="19">19</option>
+        <option value="20">20</option>
+        <option value="21">21</option>
+        <option value="22">22</option>
+        <option value="23">23</option>
+        <option value="24">24</option>
+        <option value="25">25</option>
+        <option value="26">26</option>
+        <option value="27">27</option>
+        <option value="28">28</option>
+        <option value="29">29</option>
+        <option value="30">30</option>
+        <option value="31">31</option>
+        </select>
+        <select name="month" id="month" data-role="none">
+        <option>Month</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+        </select>
+        <select name="year" id="year" data-role="none">
+        <option>Year</option>
+        </select></div>
+        <div style="margin:5px 0;">Name: <input id="fullname" name="fullname" type="text" data-theme="a" placeholder="Name" data-role="none"></div>
+        <div style="margin:5px 0;">
+        <select id="offering_list2" name="offering" data-role="none">
+        <option>Search based on offering</option>
+        </select></div>
+        <button id="admin-searchOffering-btn">Search</button><button id="cancel">Cancel</button>
+        </form>
+        <div id="search-list">Search result</div>
+
+
+        </div>
+        <div id="sendingMessage" class="statusMessage"><p>Searching, please wait...</p></div>
+<div id="successMessage" class="statusMessage"><p>Thanks for sending your message! We'll get back to you shortly.</p></div>
+<div id="failureMessage" class="statusMessage"><p>Sorry we are unable to find any record for your search criteria.</p></div>
+
+	</div>
+    <div data-role="footer" id="footer">
+		<h4><a href="#" id="logOut">Log-out</a></h4>
+	</div>
+</div>
+
+<div data-role="page" id="Offering-list" data-theme="none">
+	<div data-role="header" id="header"><a href="#dashboard" class="back-to-dashboard"><img src="img/back-btn2.png" /></a><h1>Durga temple</h1></div>
+    <div data-role="content">
+    <div id="list-data-for-admin"></div>
+    </div>
+ <div data-role="footer" id="footer">
+		<h4><a href="#" id="logOut">Log-out</a></h4>
+	</div>
+</div>
+
+
+
+<div data-role="page" id="recharge-credit" data-theme="none">
+	<div data-role="header" id="header"><a href="#dashboard" class="back-to-dashboard"><img src="img/back-btn2.png" /></a><h1>Durga temple</h1></div>
+    <div data-role="content">
+    <h3>Add Credit</h3>
+        
+        <form action="" id="updateCredit-form" method="post" >
+        <input id="email-id" name="email-id" type="text" placeholder="Email ID" data-role="none" required class="required">
+        <input id="credit" name="credit" type="text" placeholder="credit" data-role="none" required class="required" style=" margin-bottom:20px;">
+        <button id="updateCredit-btn">Update Credit</button>
+        </form>
+    
+    </div>	
+	<div data-role="footer" id="footer">
+		<h4><a href="#" id="logOut">Log-out</a></h4>
+	</div>
+</div>
+
+</body>
+</html>
