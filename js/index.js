@@ -771,7 +771,7 @@ jQuery( document ).ready( function($) {
 	var messageDelay = 2000;
 	$(document).on('load', '#login', function(e) {
 		if(window.localStorage["emailTemple"] != undefined && window.localStorage["passwordTemple"] != undefined) {
-			window.location.replace("http://imajineweb.com/temple/index.html#login");
+			window.location.replace("#login");
 			
 			
 		}
@@ -786,7 +786,7 @@ jQuery( document ).ready( function($) {
 		}
 		else
 		{
-			window.location.replace("http://imajineweb.com/temple/index.html#login");
+			window.location.replace("#login");
 		}
 	}
 	
@@ -809,7 +809,7 @@ jQuery( document ).ready( function($) {
 			handlelogin();
 			}
 			else {
-				 window.location.replace("http://imajineweb.com/temple/index.html#login");
+				 window.location.replace("#login");
 			}
 		}
 	
@@ -974,7 +974,7 @@ jQuery( document ).ready( function($) {
 					$("#offering-history-page #page-title #credit").html("Credits: " + data.credits);
 					$("#members-page #page-title #credit").html("Credits: " + data.credits);
 				 }
-				 window.location.replace("http://imajineweb.com/temple/index.html#dashboard");
+				 window.location.replace("#dashboard");
 				 }
 			 },
 			 error: function (request, status, error) { alert("Either email / password provided is wrong " + request.responseText); },
@@ -1252,7 +1252,7 @@ jQuery( document ).ready( function($) {
 		window.localStorage.removeItem("passwordTemple");
 		window.localStorage.removeItem("fnameTemple");
 		
-		window.location.replace("http://imajineweb.com/temple/index.html#login");
+		window.location.replace("#login");
 		
 	});
 	
@@ -1269,7 +1269,7 @@ function logout()
 	window.localStorage.removeItem("passwordTemple");
 	window.localStorage.removeItem("fnameTemple");
 	
-	window.location.replace("http://imajineweb.com/temple/index.html#login");
+	window.location.replace("#login");
 }	
 	
 	// NAVIGATION LINK
@@ -1277,18 +1277,18 @@ function logout()
 		if(is_user_logged_in()){
 			var fname = window.localStorage["fnameTemple"];
 			$("#profile-name").html(fname);
-			window.location.replace("http://imajineweb.com/temple/index.html#offering-page");
+			window.location.replace("#offering-page");
 		}
 	});
 	
 	$("#members-link").click(function(){
 		if(is_user_logged_in()){
-			window.location.replace("http://imajineweb.com/temple/index.html#members-page");
+			window.location.replace("#members-page");
 		}
 	});
 	$("#credits-link").click(function(){
 		if(is_user_logged_in()){
-			window.location.replace("http://imajineweb.com/temple/index.html#credits-page");
+			window.location.replace("#credits-page");
 		}
 	});
 	
